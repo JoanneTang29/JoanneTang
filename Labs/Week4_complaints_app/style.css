@@ -1,0 +1,35 @@
+body{
+    background-color: #ede0d4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.searchBar {
+    margin-top: 1em;
+}
+
+input {
+    font-size: 14pt;
+}
+
+.boroughBtn {
+    font-size: 14pt;
+    text-transform: uppercase;
+    background-color: navy;
+    color: white;
+    border-radius: 5pt;
+    padding: 5pt;
+}
+
+.boroughBtn:hover {
+    font-size: 14pt;
+    text-transform: uppercase;
+    background-color: #e76f51;
+    border-color: #e76f51;
+    color: white;
+    border-radius: 5pt;
+    padding: 5pt;
+}

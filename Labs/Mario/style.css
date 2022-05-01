@@ -1,0 +1,82 @@
+@keyframes attack {
+    0%{
+        transform: translateX(0vw);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0vh);
+    }
+    50% {
+        transform: translateY(-25vh);
+    }
+    100% {
+        transform: translateY(0vh);
+    }
+}
+
+.screen {
+    border: solid black;
+    background-image:url('https://cdn.wallpapersafari.com/80/71/JKChO6.gif');
+    background-size: cover;
+    height: 52vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mario {
+    /* border: solid red; */
+    /* background-color: red; */
+    border-radius: 50%;
+    margin-top: 58%;
+    height: 90px;
+    width: 90px;
+}
+.goomba {
+    /* border: solid brown; */
+    border-radius: 50%;
+    margin-top: 58%;
+    height: 90px;
+    width: 90px;
+}
+
+.plumber, .shroom {
+    height: 90px;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.initiateAttack {
+    animation: attack 8s ease-in infinite;
+}
+
+.starter {
+    width: 90%;
+    height: 42px;
+    margin: 1em;
+}
+
+.jump {
+    width: 90%;
+    height: 42px;
+    margin: 1em;
+}
+
+.initiateJump {
+    animation: jump 1.5s ease-in;
+}
+
+.jbox {
+    height: 90px;
+    margin: 1em;
+}
+
+.jbox:hover {
+    height: 90px;
+    -webkit-box-shadow: 5px 5px 20px 5px #000000; 
+box-shadow: 5px 5px 20px 5px #000000;
+}

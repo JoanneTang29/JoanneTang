@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Space</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Space Battle -->
+    <!-- How do we make it work -->
+    <!-- Game winners vs losers  -->
+
+    <h1>Space Battle</h1>
+    <div class="legend">
+      <p class="score">USS Assembly : <span> 0 </span></p>
+      <hr />
+      <p class="score">Alien Team : <span> 0 </span></p>
+    </div>
+    <div class="gameboard">
+      <!-- USS ASSEMBLY-->
+      <div class="us">
+        <div class="ship-health-bar">
+          <progress id="shipHP" value="20" min="0" max="20"></progress>
+        </div>
+        <img
+          src="https://i.pinimg.com/originals/3b/03/94/3b0394153492f7a2e31e80bb9e4c4fb5.gif"
+          alt=""
+          class="ship"
+        />
+        <img
+          src="https://i.pinimg.com/originals/45/9f/fd/459ffd2cecdb2a286d2879f6556ec2b7.png"
+          alt=""
+          class="fireball"
+        />
+      </div>
+      <!-- Winner/Loser-->
+      <div class="end-game">
+        <div class="winner">
+          <img
+            src="https://media2.giphy.com/media/8P4SMIhhFoG83yZg7R/giphy.gif?cid=6c09b952c72112f0ae1162a0ac215aecd11021989dccfb6a&rid=giphy.gif&ct=s"
+            alt=""
+            class="winner"
+          />
+        </div>
+        <div class="loser">
+          <img
+            src="https://image.spreadshirtmedia.net/image-server/v1/mp/designs/183609061,width=178,height=178/mission-failed.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- 6 Alien Ships-->
+      <div class="them">
+        <div class="alienContainer">
+          <div class="healthbar">
+            <progress id="progressBar1" value="6" min="0" max="6"></progress>
+          </div>
+          <div class="ufo">
+            <img
+              src="https://media0.giphy.com/media/ygwYWMzryjq2ka87QY/giphy.gif"
+              alt=""
+              class="alien"
+              id="alien1"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/63/Green_Point.gif"
+              alt=""
+              class="alienFire"
+              id="alienFire1"
+            />
+          </div>
+          <div class="healthbar">
+            <progress id="progressBar2" value="6" min="0" max="6"></progress>
+          </div>
+
+          <div class="ufo">
+            <img
+              src="https://media0.giphy.com/media/ygwYWMzryjq2ka87QY/giphy.gif"
+              alt=""
+              class="alien"
+              id="alien2"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/63/Green_Point.gif"
+              alt=""
+              class="alienFire"
+              id="alienFire2"
+            />
+          </div>
+          <div class="healthbar">
+            <progress id="progressBar3" value="6" min="0" max="6"></progress>
+          </div>
+
+          <div class="ufo">
+            <img
+              src="https://media0.giphy.com/media/ygwYWMzryjq2ka87QY/giphy.gif"
+              alt=""
+              class="alien"
+              id="alien3"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/63/Green_Point.gif"
+              alt=""
+              class="alienFire"
+              id="alienFire3"
+            />
+          </div>
+          <div class="healthbar">
+            <progress id="progressBar4" value="6" min="0" max="6"></progress>
+          </div>
+
+          <div class="ufo">
+            <img
+              src="https://media0.giphy.com/media/ygwYWMzryjq2ka87QY/giphy.gif"
+              alt=""
+              class="alien"
+              id="alien4"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/63/Green_Point.gif"
+              alt=""
+              class="alienFire"
+              id="alienFire4"
+            />
+          </div>
+          <div class="healthbar">
+            <progress id="progressBar5" value="6" min="0" max="6"></progress>
+          </div>
+
+          <div class="ufo">
+            <img
+              src="https://media0.giphy.com/media/ygwYWMzryjq2ka87QY/giphy.gif"
+              alt=""
+              class="alien"
+              id="alien5"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/63/Green_Point.gif"
+              alt=""
+              class="alienFire"
+              id="alienFire5"
+            />
+          </div>
+          <div class="healthbar">
+            <progress id="progressBar6" value="6" min="0" max="6"></progress>
+          </div>
+
+          <div class="ufo">
+            <img
+              src="https://media0.giphy.com/media/ygwYWMzryjq2ka87QY/giphy.gif"
+              alt=""
+              class="alien"
+              id="alien6"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/63/Green_Point.gif"
+              alt=""
+              class="alienFire"
+              id="alienFire6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="startGame" onclick="battle()">Start Game</button>
+    <!--- Create Spaceship-->
+    <!-- Create Enemy shi[ -->
+    <!-- Hull - 20; each ship between 3 to 6; btwn 3 to 6 -->
+    <!-- Firepower - 5; between 2 to 4; btwn 2 to 4 -->
+    <!-- Accuracy - .7; between .6 to .8; btwn .6 to .8 -->
+    <script src="app.js" async defer></script>
+  </body>
+</html>

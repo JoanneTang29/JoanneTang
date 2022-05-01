@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Joanne's Guessing Game</h1>
+
+    <div class="container">
+      <div class="screen">Welcome</div>
+    </div>
+
+    <div class="scoreContainer">
+      <img
+        src="https://img1.picmix.com/output/stamp/normal/7/3/2/6/1656237_049e3.gif"
+        alt=""
+        class="rose"
+      />
+      <div class="score-text">Score: <span class="score">0</span></div>
+    </div>
+
+    <div class="cardContainer">
+      <div class="card">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0526/7144/7238/products/playing-cards-game-flying-tiger-copenhagen-875218@2x.png?v=1647519853"
+          alt=""
+          id="card1"
+          height="200px;"
+          onclick="cardFlip1()"
+        />
+      </div>
+      <div class="card">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0526/7144/7238/products/playing-cards-game-flying-tiger-copenhagen-875218@2x.png?v=1647519853"
+          alt=""
+          id="card2"
+          height="200px;"
+          onclick="cardFlip2()"
+        />
+      </div>
+      <div class="card">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0526/7144/7238/products/playing-cards-game-flying-tiger-copenhagen-875218@2x.png?v=1647519853"
+          alt=""
+          id="card3"
+          height="200px;"
+          onclick="cardFlip3()"
+        />
+      </div>
+    </div>
+    <script src="app.js" async defer></script>
+  </body>
+</html>

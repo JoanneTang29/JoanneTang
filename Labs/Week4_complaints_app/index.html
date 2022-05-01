@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>WHERE CAN WE CAUSE TROUBLE TODAY?</h1>
+    <div class="searchBar">
+      <input id="complaintsNumber" value="" placeholder="# of Complaints" />
+      <button class="boroughBtn" onclick="getBorough('MANHATTAN')">
+        Manhattan
+      </button>
+      <button class="boroughBtn" onclick="getBorough('BROOKLYN')">
+        Brooklyn
+      </button>
+      <button class="boroughBtn" onclick="getBorough('QUEENS')">Queens</button>
+      <button class="boroughBtn" onclick="getBorough('STATEN%20ISLAND')">
+        Staten Island
+      </button>
+      <button class="boroughBtn" onclick="getBorough('BRONX')">Bronx</button>
+    </div>
+    <script src="app.js" async defer></script>
+  </body>
+</html>
