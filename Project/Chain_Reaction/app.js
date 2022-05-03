@@ -105,7 +105,9 @@ function nextRound() {
   resetInput();
   setWager(0);
   wordCounter = 0;
+  insertSecondInput.disabled = false;
   insertThirdInput.disabled = true;
+  insertFourthInput.disabled = false;
 }
 
 const randomizeArray = (phraseList) => {
@@ -120,7 +122,9 @@ const randomizeArray = (phraseList) => {
 
 const resetScore = () => {
   playerOneScore = 500;
-  playeTwoScore = 500;
+  playerOnePoints.innerHTML = playerOneScore;
+  playerTwoScore = 500;
+  playerTwoPoints.innerHTML = playerTwoScore;
 };
 
 const resetInput = () => {
@@ -128,14 +132,6 @@ const resetInput = () => {
   insertThirdInput.value = '';
   insertFourthInput.value = '';
 };
-
-// Round 1, 2, 3
-// Active Player 1 or 2?
-// 1) Select Wager
-// 2) Guess word
-// 3) Add/Subtract Wager for total score
-// 4) Next players turn
-// 5) repeat until all words are guessed
 
 const checkActivePlayer = () => {
   if (activePlayer === 1) {
@@ -163,13 +159,14 @@ const verifyIfRoundIsOverAndIncrement = () => {
 };
 
 const guessSecondWord = () => {
-  insertSecondInput.value;
-  console.log(phraseList[0][1]);
+  // insertSecondInput.value;
   if (insertSecondInput.value === phraseList[round - 1][1]) {
-    console.log('1st input correct');
     addPoints();
     wordCounter++;
+    insertSecondInput.disabled = true;
     console.log('word counter', wordCounter);
+  } else if (insertSecondInput.value === '') {
+    console.log('do nothing');
   } else {
     minusPoints();
   }
@@ -178,12 +175,14 @@ const guessSecondWord = () => {
 };
 
 const guessThirdWord = () => {
-  insertThirdInput.value;
+  // insertThirdInput.value;
   if (insertThirdInput.value === phraseList[round - 1][2]) {
-    console.log('2nd input correct');
     addPoints();
     wordCounter++;
+    insertThirdInput.disabled = true;
     console.log('word counter', wordCounter);
+  } else if (insertThirdInput.value === '') {
+    console.log('do nothing');
   } else {
     minusPoints();
   }
@@ -192,12 +191,14 @@ const guessThirdWord = () => {
 };
 
 const guessFourthWord = () => {
-  insertFourthInput.value;
+  // insertFourthInput.value;
   if (insertFourthInput.value === phraseList[round - 1][3]) {
-    console.log('4th input correct');
     addPoints();
     wordCounter++;
+    insertFourthInput.disabled = true;
     console.log('word counter', wordCounter);
+  } else if (insertFourthInput.value === '') {
+    console.log('do nothing');
   } else {
     minusPoints();
   }
