@@ -47,6 +47,7 @@ const points200 = 200;
 
 // Rounds
 let round = 1;
+let wordCounter = 0;
 
 // Button to select wager
 let selectFiftyPoints = document.getElementById('wager50');
@@ -58,38 +59,17 @@ selectTwoHundredPoints.addEventListener('click', () => setWager(200));
 
 // Insert phrases into DOM
 const insertPhrases = () => {
-  insertFirstWord.replaceChildren(phraseList[0][0]);
+  insertFirstWord.replaceChildren(phraseList[round - 1][0]);
 
-  insertSecondInput.placeholder = phraseList[0][1][0];
+  insertSecondInput.placeholder = phraseList[round - 1][1][0];
 
-  insertThirdInput.placeholder = phraseList[0][2][0];
+  insertThirdInput.placeholder = phraseList[round - 1][2][0];
 
-  insertFourthInput.placeholder = phraseList[0][3][0];
+  insertFourthInput.placeholder = phraseList[round - 1][3][0];
 
-  insertFifthWord.replaceChildren(phraseList[0][4]);
+  insertFifthWord.replaceChildren(phraseList[round - 1][4]);
 };
 
-// Grab input section to type word for guessing
-
-// Function to determine if word typed === '______'
-
-// Add wager points to total score if correct answer
-// Subtract wager points to total score if wrong answer
-
-// Round 1, 2, 3
-// 1) Select Wager
-// 2) Guess word
-// 3) Add/Subtract Wager for total score
-// 4) Next players turn
-// 5) repeat until all words are guessed
-
-// Winner Screen
-
-// New game button to reset points and have new words
-
-// Function to add/subtract wager to total score
-
-// Function to randomize phrase
 function setUpGame() {
   randomizeArray(phraseList);
   resetScore();
@@ -104,6 +84,12 @@ function setUpGame() {
       guessSecondWord();
     }
   });
+  insertThirdInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      console.log('enter 3rd key');
+      guessThirdWord();
+    }
+  });
   insertFourthInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       console.log('enter 4th key');
@@ -111,6 +97,16 @@ function setUpGame() {
     }
   });
   console.log('printing randomized arrays', phraseList);
+}
+
+function nextRound() {
+  round++;
+  insertPhrases();
+  resetInput();
+  setWager(0);
+  wordCounter = 0;
+  activePlayer = 1;
+  insertThirdInput.disabled = true;
 }
 
 const randomizeArray = (phraseList) => {
@@ -134,42 +130,67 @@ const resetInput = () => {
   insertFourthInput.value = '';
 };
 
-const createRound = (number) => {};
+// Round 1, 2, 3
+// Active Player 1 or 2?
+// 1) Select Wager
+// 2) Guess word
+// 3) Add/Subtract Wager for total score
+// 4) Next players turn
+// 5) repeat until all words are guessed
+const verifyIfRoundIsOverAndIncrement = () => {
+  if (wordCounter === 1) {
+    insertThirdInput.disabled = false;
+  }
+  console.log('round', round);
+  if (round === 1 && wordCounter === 3) {
+    nextRound();
+  }
+  if (round === 2 && wordCounter === 3) {
+    nextRound();
+  }
+  if (round === 3 && wordCounter === 3) {
+    checkForWinner();
+  }
+};
 
 const guessSecondWord = () => {
   insertSecondInput.value;
   console.log(phraseList[0][1]);
-  if (insertSecondInput.value === phraseList[0][1]) {
+  if (insertSecondInput.value === phraseList[round - 1][1]) {
     console.log('1st input correct');
     addPoints();
+    wordCounter++;
+    console.log('word counter', wordCounter);
   } else {
-    //subtract points and next player's turn
     minusPoints();
   }
+  verifyIfRoundIsOverAndIncrement();
 };
 
 const guessThirdWord = () => {
   insertThirdInput.value;
-  if (insertThirdInput.value === phraseList[0][2]) {
+  if (insertThirdInput.value === phraseList[round - 1][2]) {
     console.log('2nd input correct');
-    //add points and next player's turn
     addPoints();
+    wordCounter++;
+    console.log('word counter', wordCounter);
   } else {
-    //subtract points and next player's turn
     minusPoints();
   }
+  verifyIfRoundIsOverAndIncrement();
 };
 
 const guessFourthWord = () => {
   insertFourthInput.value;
-  if (insertFourthInput.value === phraseList[0][3]) {
+  if (insertFourthInput.value === phraseList[round - 1][3]) {
     console.log('4th input correct');
-    //add points and next player's turn
     addPoints();
+    wordCounter++;
+    console.log('word counter', wordCounter);
   } else {
-    //subtract points and next player's turn
     minusPoints();
   }
+  verifyIfRoundIsOverAndIncrement();
 };
 
 const setWager = (number) => {
@@ -200,7 +221,7 @@ const minusPoints = () => {
 };
 
 const checkForWinner = () => {
-  if (round > 3) {
+  if (round === 3) {
     if (playerOneScore > playerTwoScore) {
       console.log('Player One Wins');
     } else {
