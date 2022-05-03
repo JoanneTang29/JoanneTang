@@ -105,7 +105,6 @@ function nextRound() {
   resetInput();
   setWager(0);
   wordCounter = 0;
-  activePlayer = 1;
   insertThirdInput.disabled = true;
 }
 
@@ -137,6 +136,16 @@ const resetInput = () => {
 // 3) Add/Subtract Wager for total score
 // 4) Next players turn
 // 5) repeat until all words are guessed
+
+const checkActivePlayer = () => {
+  if (activePlayer === 1) {
+    activePlayer = 2;
+  } else {
+    activePlayer = 1;
+    console.log('active player', activePlayer);
+  }
+};
+
 const verifyIfRoundIsOverAndIncrement = () => {
   if (wordCounter === 1) {
     insertThirdInput.disabled = false;
@@ -164,6 +173,7 @@ const guessSecondWord = () => {
   } else {
     minusPoints();
   }
+  checkActivePlayer();
   verifyIfRoundIsOverAndIncrement();
 };
 
@@ -177,6 +187,7 @@ const guessThirdWord = () => {
   } else {
     minusPoints();
   }
+  checkActivePlayer();
   verifyIfRoundIsOverAndIncrement();
 };
 
@@ -190,6 +201,7 @@ const guessFourthWord = () => {
   } else {
     minusPoints();
   }
+  checkActivePlayer();
   verifyIfRoundIsOverAndIncrement();
 };
 
@@ -205,8 +217,8 @@ const addPoints = () => {
     playerOneScore = playerOneScore + wager;
     playerOnePoints.innerHTML = playerOneScore;
   } else if (activePlayer === 2) {
-    playeTwoScore = playeTwoScore + wager;
-    playerTwoPoints.innerHTML = playeTwoScore;
+    playerTwoScore = playerTwoScore + wager;
+    playerTwoPoints.innerHTML = playerTwoScore;
   }
 };
 
