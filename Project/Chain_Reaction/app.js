@@ -18,10 +18,6 @@ let phraseList = [
   ['Forbidden', 'Fruit', 'Salad', 'Dressing', 'Room'],
 ];
 
-console.log('list', phraseList);
-
-let roundCounter = 1;
-
 let insertFirstWord = document.getElementById('firstWord');
 let insertSecondInput = document.getElementById('secondWord');
 let insertThirdInput = document.getElementById('thirdWord');
@@ -40,7 +36,7 @@ let playerTwoPoints = document.getElementById('points2');
 
 // Player Scores
 let playerOneScore = 500;
-let playeTwoScore = 500;
+let playerTwoScore = 500;
 
 // Points
 let wager = 0;
@@ -48,6 +44,9 @@ let wager = 0;
 const points50 = 50;
 const points100 = 100;
 const points200 = 200;
+
+// Rounds
+let round = 1;
 
 // Button to select wager
 let selectFiftyPoints = document.getElementById('wager50');
@@ -154,8 +153,10 @@ const guessThirdWord = () => {
   if (insertThirdInput.value === phraseList[0][2]) {
     console.log('2nd input correct');
     //add points and next player's turn
+    addPoints();
   } else {
     //subtract points and next player's turn
+    minusPoints();
   }
 };
 
@@ -164,8 +165,10 @@ const guessFourthWord = () => {
   if (insertFourthInput.value === phraseList[0][3]) {
     console.log('4th input correct');
     //add points and next player's turn
+    addPoints();
   } else {
     //subtract points and next player's turn
+    minusPoints();
   }
 };
 
@@ -191,8 +194,18 @@ const minusPoints = () => {
     playerOneScore = playerOneScore - wager;
     playerOnePoints.innerHTML = playerOneScore;
   } else if (activePlayer === 2) {
-    playeTwoScore = playeTwoScore - wager;
-    playerTwoPoints.innerHTML = playeTwoScore;
+    playerTwoScore = playeTwoScore - wager;
+    playerTwoPoints.innerHTML = playerTwoScore;
+  }
+};
+
+const checkForWinner = () => {
+  if (round > 3) {
+    if (playerOneScore > playerTwoScore) {
+      console.log('Player One Wins');
+    } else {
+      console.log('Player Two Wins');
+    }
   }
 };
 
