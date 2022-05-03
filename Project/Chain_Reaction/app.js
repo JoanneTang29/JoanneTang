@@ -34,27 +34,28 @@ newGame.addEventListener('click', setUpGame);
 
 // Rules - hide and show rules
 
-// Player Scores
-let playerScore1 = 500;
-let playerScore2 = 500;
+let activePlayer = 1;
+let playerOnePoints = document.getElementById('points1');
+let playerTwoPoints = document.getElementById('points2');
 
-let wager = 0;
+// Player Scores
+let playerOneScore = 500;
+let playeTwoScore = 500;
 
 // Points
+let wager = 0;
+
 const points50 = 50;
 const points100 = 100;
 const points200 = 200;
 
+// Button to select wager
 let selectFiftyPoints = document.getElementById('wager50');
 selectFiftyPoints.addEventListener('click', () => setWager(50));
 let selectHundredPoints = document.getElementById('wager100');
 selectHundredPoints.addEventListener('click', () => setWager(100));
 let selectTwoHundredPoints = document.getElementById('wager200');
 selectTwoHundredPoints.addEventListener('click', () => setWager(200));
-
-// Randomize which array of phrases is selected
-// Grab array index and insert array index into div/input
-// Create blank array, and insert array into
 
 // Insert phrases into DOM
 const insertPhrases = () => {
@@ -69,8 +70,6 @@ const insertPhrases = () => {
   insertFifthWord.replaceChildren(phraseList[0][4]);
 };
 
-// Button to select wager
-
 // Grab input section to type word for guessing
 
 // Function to determine if word typed === '______'
@@ -79,6 +78,11 @@ const insertPhrases = () => {
 // Subtract wager points to total score if wrong answer
 
 // Round 1, 2, 3
+// 1) Select Wager
+// 2) Guess word
+// 3) Add/Subtract Wager for total score
+// 4) Next players turn
+// 5) repeat until all words are guessed
 
 // Winner Screen
 
@@ -93,6 +97,7 @@ function setUpGame() {
   insertPhrases();
   resetInput();
   setWager(0);
+  activePlayer = 1;
   insertThirdInput.disabled = true;
   insertSecondInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -120,8 +125,8 @@ const randomizeArray = (phraseList) => {
 };
 
 const resetScore = () => {
-  playerScore1 = 500;
-  playerScore2 = 500;
+  playerOneScore = 500;
+  playeTwoScore = 500;
 };
 
 const resetInput = () => {
@@ -136,7 +141,19 @@ const guessSecondWord = () => {
   insertSecondInput.value;
   console.log(phraseList[0][1]);
   if (insertSecondInput.value === phraseList[0][1]) {
-    console.log('it works');
+    console.log('1st input correct');
+    addPoints();
+  } else {
+    //subtract points and next player's turn
+    minusPoints();
+  }
+};
+
+const guessThirdWord = () => {
+  insertThirdInput.value;
+  if (insertThirdInput.value === phraseList[0][2]) {
+    console.log('2nd input correct');
+    //add points and next player's turn
   } else {
     //subtract points and next player's turn
   }
@@ -146,19 +163,38 @@ const guessFourthWord = () => {
   insertFourthInput.value;
   if (insertFourthInput.value === phraseList[0][3]) {
     console.log('4th input correct');
+    //add points and next player's turn
   } else {
     //subtract points and next player's turn
   }
 };
 
 const setWager = (number) => {
-  console.log(number);
+  console.log('wager:', number);
   let wagerInput = document.querySelector('.wager');
   wager = number;
   wagerInput.innerHTML = number;
 };
 
-const calculatePoints = () => {};
+const addPoints = () => {
+  if (activePlayer === 1) {
+    playerOneScore = playerOneScore + wager;
+    playerOnePoints.innerHTML = playerOneScore;
+  } else if (activePlayer === 2) {
+    playeTwoScore = playeTwoScore + wager;
+    playerTwoPoints.innerHTML = playeTwoScore;
+  }
+};
+
+const minusPoints = () => {
+  if (activePlayer === 1) {
+    playerOneScore = playerOneScore - wager;
+    playerOnePoints.innerHTML = playerOneScore;
+  } else if (activePlayer === 2) {
+    playeTwoScore = playeTwoScore - wager;
+    playerTwoPoints.innerHTML = playeTwoScore;
+  }
+};
 
 /* Extra Stuff
   Section to type player 1 and 2's name

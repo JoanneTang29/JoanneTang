@@ -40,6 +40,7 @@ h1 {
     font-size: 30pt;
     display: flex;
     justify-content: space-evenly;
+    padding: 10px;
 }
 
 .wagerContainer {
@@ -63,10 +64,28 @@ h1 {
     border: 1px solid black;
 }
 
+.wagerChip:hover {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    font-size: 20pt;
+    box-shadow: 3px 3px grey, 2px 2px grey, 1px 1px grey;
+    border: 1px solid black;
+}
+
+.wagerChip:active {
+    box-shadow: 3px 3px grey, 2px 2px grey, 1px 1px grey;
+    transform: translateY(4px);
+}
+
 .wager {
     border: 2px yellow solid;
     display: flex;
     justify-content: center;
+    padding: 10px;
+    font-size: 20pt;
 }
 
 .newGame {
