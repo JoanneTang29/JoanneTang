@@ -10,31 +10,45 @@
   </head>
   <body>
     <h1>Chain Reaction</h1>
-
-    <!-- Game Board-->
+    <!-- Rules -->
+    <div class="rulesContainer">
+      <div class="rulesheader">
+        <p>Rules</p>
+        <div class="rules">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ipsum
+          neque sapiente voluptatibus, fuga ullam saepe ducimus blanditiis odio
+          ex consequatur quis, iure cum enim praesentium optio dolorem minus
+          rem!
+        </div>
+      </div>
+    </div>
+    <!-- Game Board -->
     <div class="gameboard">
       <!-- Words Displayed -->
-      <div class="wordChain">
-        <div class="word1">Word1</div>
-        <input type="text" class="word2" placeholder="B" />
+      <div class="phraseContainer">
+        <div class="word" id="firstWord"></div>
+        <input type="text" class="word" id="secondWord" placeholder="" />
         <br />
-        <input type="text" class="word3" placeholder="P" />
-        <div class="word4">Word 4</div>
+        <input type="text" class="word" id="thirdWord" placeholder="" />
+        <br />
+        <input type="text" class="word" id="fourthWord" placeholder="" />
+        <div class="word" id="fifthWord"></div>
       </div>
 
       <!-- Scoreboard -->
       <div class="scoreboard">
-        <div class="playerSCore">
-          <div class="player1">Player 1:</div>
-          <div class="player2">Player 2:</div>
+        <div class="playerScore">
+          <div class="player1">Player 1:<span id="points1"></span></div>
+          <div class="player2">Player 2:<span id="points2"></span></div>
         </div>
 
         <!-- Wager Section -->
         <div class="wagerContainer">
-          <button class="wagerChip" id="wager%0">50</button>
+          <button class="wagerChip" id="wager50">50</button>
           <button class="wagerChip" id="wager100">100</button>
           <button class="wagerChip" id="wager200">200</button>
         </div>
+        <div class="wager">0</div>
       </div>
     </div>
 
