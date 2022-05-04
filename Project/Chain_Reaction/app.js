@@ -77,6 +77,7 @@ function setUpGame() {
   resetInput();
   setWager(0);
   activePlayer = 1;
+  document.querySelector('.playerOne').style.backgroundColor = '#ff5400';
   insertThirdInput.disabled = true;
   insertSecondInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -136,9 +137,13 @@ const resetInput = () => {
 const checkActivePlayer = () => {
   if (activePlayer === 1) {
     activePlayer = 2;
+    document.querySelector('.playerTwo').style.backgroundColor = '#ff5400';
+    document.querySelector('.playerOne').style.backgroundColor = '#0d3b66';
   } else {
     activePlayer = 1;
     console.log('active player', activePlayer);
+    document.querySelector('.playerOne').style.backgroundColor = '#ff5400';
+    document.querySelector('.playerTwo').style.backgroundColor = '#0d3b66';
   }
 };
 
