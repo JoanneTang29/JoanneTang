@@ -10,28 +10,28 @@
   </head>
   <body>
     <h1>Chain Reaction</h1>
-    <!-- Rules -->
-    <div class="rulesContainer">
-      <button id="rulesButton" onclick="toggleRules()">Rules</button>
-      <div class="rules">
-        <ul>
-          <li id="objective">
-            <span id="boldObjective">Objective&nbsp</span>:&nbspTwo players
-            compete to guess words that connect to each other above and below in
-            some way. All connected words make up a chain.
-          </li>
-          <li>Players start with 500 points</li>
-          <li>First player wagers 50, 100, or 200 points.</li>
-          <li>Then, will select a word to guess.</li>
-          <li>If the guess is correct, you double the points you wagered.</li>
-          <li>If the guess is incorrect, you lose the points you wagered.</li>
-          <li>Player 2 goes next.</li>
-          <li>Player with the most points at the end of round 3 WINS.</li>
-        </ul>
-      </div>
-    </div>
+    <button id="rulesButton" onclick="toggleRules()">Rules</button>
     <!-- Game Board -->
     <div class="gameboard">
+      <!-- Rules -->
+      <div class="rulesContainer">
+        <div class="rules">
+          <ul>
+            <li id="objective">
+              <span id="boldObjective">Objective&nbsp</span>:&nbspTwo players
+              compete to guess words that connect to each other above and below
+              in some way. All connected words make up a chain.
+            </li>
+            <li>Players start with 500 points</li>
+            <li>First player wagers 50, 100, or 200 points.</li>
+            <li>Then, will select a word to guess.</li>
+            <li>If the guess is correct, you double the points you wagered.</li>
+            <li>If the guess is incorrect, you lose the points you wagered.</li>
+            <li>Player 2 will guess next.</li>
+            <li>Player with the most points at the end of round 3 WINS.</li>
+          </ul>
+        </div>
+      </div>
       <!-- Words Displayed -->
       <div class="phraseContainer">
         <div class="word" id="firstWord"></div>

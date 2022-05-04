@@ -248,9 +248,13 @@ const checkForWinner = () => {
   if (round === 3) {
     if (playerOneScore > playerTwoScore) {
       console.log('Player One Wins');
+      const endGame = document.querySelector('.end-game');
+      endGame.style.display = 'block';
       const winnerOne = document.querySelector('.playerOneWins');
       winnerOne.style.display = 'block';
     } else {
+      const endGame = document.querySelector('.end-game');
+      endGame.style.display = 'block';
       const winnerTwo = document.querySelector('.playerTwoWins');
       winnerTwo.style.display = 'block';
       console.log('Player Two Wins');
