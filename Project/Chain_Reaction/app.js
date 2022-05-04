@@ -248,6 +248,14 @@ const checkForWinner = () => {
   }
 };
 
+function toggleRules() {
+  let rules = document.querySelector('.rules');
+  if (rules.style.display === 'none') {
+    rules.style.display = 'block';
+  } else {
+    rules.style.display = 'none';
+  }
+}
 /* Extra Stuff
   Section to type player 1 and 2's name
   Show next letter, if a player gets the word wrong
