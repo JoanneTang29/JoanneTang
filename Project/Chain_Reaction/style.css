@@ -50,6 +50,14 @@ input {
     width: 50%;
 }
 
+#objective {
+    list-style-type: none;
+}
+
+#boldObjective {
+    font-weight: bold;
+}
+
 .gameboard {
     border: #ff5400 5px solid;
     border-radius: 25px;
@@ -83,12 +91,12 @@ input {
 
 .playerOne {
     border: #ff5400 2px solid;
-    padding: 10px;
+    padding: 20px;
 }
 
 .playerTwo {
     border: #ff5400 2px solid;
-    padding: 10px;
+    padding: 20px;
 }
 
 .wagerContainer {
@@ -129,11 +137,13 @@ input {
 }
 
 .wager {
-    border: 2px yellow solid;
-    display: flex;
-    justify-content: center;
+    /* border: 2px yellow solid; */
+    text-align: center;
     padding: 10px;
     font-size: 26pt;
+    margin-left: 125px;
+    margin-right: 100px;
+    background-color: #ff9e00;
 }
 
 .newGame {

@@ -169,6 +169,8 @@ const guessSecondWord = () => {
     addPoints();
     wordCounter++;
     insertSecondInput.disabled = true;
+    insertSecondInput.style.backgroundColor = '#0d3b66';
+    insertSecondInput.style.color = 'white';
     console.log('word counter', wordCounter);
   } else if (insertSecondInput.value === '') {
     console.log('do nothing');
@@ -185,6 +187,8 @@ const guessThirdWord = () => {
     addPoints();
     wordCounter++;
     insertThirdInput.disabled = true;
+    insertThirdInput.style.backgroundColor = '#0d3b66';
+    insertThirdInput.style.color = 'white';
     console.log('word counter', wordCounter);
   } else if (insertThirdInput.value === '') {
     console.log('do nothing');
@@ -201,6 +205,8 @@ const guessFourthWord = () => {
     addPoints();
     wordCounter++;
     insertFourthInput.disabled = true;
+    insertFourthInput.style.backgroundColor = '#0d3b66';
+    insertFourthInput.style.color = 'white';
     console.log('word counter', wordCounter);
   } else if (insertFourthInput.value === '') {
     console.log('do nothing');
