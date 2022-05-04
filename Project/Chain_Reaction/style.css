@@ -1,14 +1,3 @@
-@keyframes startGame {
-    0% {
-        transform: translateY(0%);
-    }
-    50% {
-        transform: translateY(100%);
-        font-size: 500px;
-    }
-    100% {transform: translateY(0%);
-    }
-}
 
 @keyframes blink {
     0% {
@@ -83,14 +72,14 @@ input {
 .rules {
     background-image: url('https://2.bp.blogspot.com/-Qztm1kS0c7Y/WBLi_v3JQqI/AAAAAAAANtc/MpH0g8oCd6s4HMX6K7bz0X54wYz6ustEwCLcB/s1600/Ultra%2BWide%2BBackgrounds%2B47.jpg');  
     position: relative;
-    height: 420px;
+    height: 440px;
     border-radius: 25px;
-    padding-top: 30px;
+    padding-top: 10px;
     font-size: 16pt;
     z-index: 200;
 }
 
-#objective {
+.noBulletPoint {
     list-style-type: none;
 }
 
