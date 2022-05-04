@@ -24,6 +24,25 @@ let insertThirdInput = document.getElementById('thirdWord');
 let insertFourthInput = document.getElementById('fourthWord');
 let insertFifthWord = document.getElementById('fifthWord');
 
+insertSecondInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    console.log('enter key');
+    guessSecondWord();
+  }
+});
+insertThirdInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    console.log('enter 3rd key');
+    guessThirdWord();
+  }
+});
+insertFourthInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    console.log('enter 4th key');
+    guessFourthWord();
+  }
+});
+
 // New game
 const newGame = document.querySelector('.newGame');
 newGame.addEventListener('click', setUpGame);
@@ -78,25 +97,12 @@ function setUpGame() {
   setWager(0);
   activePlayer = 1;
   document.querySelector('.playerOne').style.backgroundColor = '#ff5400';
+  document.querySelector('.playerTwo').style.backgroundColor = '#0d3b66';
+  insertSecondInput.disabled = false;
   insertThirdInput.disabled = true;
-  insertSecondInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      console.log('enter key');
-      guessSecondWord();
-    }
-  });
-  insertThirdInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      console.log('enter 3rd key');
-      guessThirdWord();
-    }
-  });
-  insertFourthInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      console.log('enter 4th key');
-      guessFourthWord();
-    }
-  });
+  insertFourthInput.disabled = false;
+  wordCounter = 0;
+  round = 1;
   console.log('printing randomized arrays', phraseList);
 }
 
@@ -169,8 +175,6 @@ const guessSecondWord = () => {
     addPoints();
     wordCounter++;
     insertSecondInput.disabled = true;
-    insertSecondInput.style.backgroundColor = '#0d3b66';
-    insertSecondInput.style.color = 'white';
     console.log('word counter', wordCounter);
   } else if (insertSecondInput.value === '') {
     console.log('do nothing');
@@ -187,8 +191,6 @@ const guessThirdWord = () => {
     addPoints();
     wordCounter++;
     insertThirdInput.disabled = true;
-    insertThirdInput.style.backgroundColor = '#0d3b66';
-    insertThirdInput.style.color = 'white';
     console.log('word counter', wordCounter);
   } else if (insertThirdInput.value === '') {
     console.log('do nothing');
@@ -205,8 +207,6 @@ const guessFourthWord = () => {
     addPoints();
     wordCounter++;
     insertFourthInput.disabled = true;
-    insertFourthInput.style.backgroundColor = '#0d3b66';
-    insertFourthInput.style.color = 'white';
     console.log('word counter', wordCounter);
   } else if (insertFourthInput.value === '') {
     console.log('do nothing');
@@ -239,7 +239,7 @@ const minusPoints = () => {
     playerOneScore = playerOneScore - wager;
     playerOnePoints.innerHTML = playerOneScore;
   } else if (activePlayer === 2) {
-    playerTwoScore = playeTwoScore - wager;
+    playerTwoScore = playerTwoScore - wager;
     playerTwoPoints.innerHTML = playerTwoScore;
   }
 };
@@ -248,7 +248,11 @@ const checkForWinner = () => {
   if (round === 3) {
     if (playerOneScore > playerTwoScore) {
       console.log('Player One Wins');
+      const winnerOne = document.querySelector('.playerOneWins');
+      winnerOne.style.display = 'block';
     } else {
+      const winnerTwo = document.querySelector('.playerTwoWins');
+      winnerTwo.style.display = 'block';
       console.log('Player Two Wins');
     }
   }
@@ -265,5 +269,4 @@ function toggleRules() {
 /* Extra Stuff
   Section to type player 1 and 2's name
   Show next letter, if a player gets the word wrong
-  Once player guesses right, change input to a div, and player gets point
 */

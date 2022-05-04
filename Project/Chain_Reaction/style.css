@@ -1,4 +1,14 @@
-
+@keyframes startGame {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(100%);
+        font-size: 500px;
+    }
+    100% {transform: translateY(0%);
+    }
+}
 
 body {
     height: 100vh;
@@ -9,6 +19,7 @@ body {
     background-color: #0d3b66;
     color: white;
     display: flexbox;
+    justify-content: center;
 }
 
 h1 {
@@ -22,6 +33,10 @@ h1 {
 
 input {
     width: 7em;
+}
+
+::placeholder {
+    color: #ff5400;
 }
 
 #rulesButton {
@@ -47,7 +62,8 @@ input {
 }
 
 .rules {
-    width: 50%;
+    width: 75%;
+    font-size: 16pt;
 }
 
 #objective {
@@ -65,6 +81,7 @@ input {
     margin-top: 1em;
     display: flex;
     justify-content: space-evenly;
+    position: relative;
 }
 
 .phraseContainer {
@@ -169,6 +186,29 @@ input {
 	top:4px;
 }
 
-::placeholder {
-    color: #ff5400;
+/* Winner/Loser*/
+.end-game {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #0d3b66;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.playerOneWins {
+    font-size: 100pt;
+    position: relative; 
+    z-index: 50; 
+    display: none;
+}
+
+.playerTwoWins {
+    font-size: 100pt;
+    position: relative;
+    z-index: 50;
+    display: none;
 }
