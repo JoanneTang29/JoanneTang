@@ -14,8 +14,9 @@ let phraseList = [
   ['Cookie', 'Monster', 'Truck', 'Stop', 'Sign'],
   ['Baby', 'Blue', 'Corn', 'Dog', 'Park'],
   ['Dark', 'Horse', 'Race', 'Car', 'Show'],
-  ['Golden', 'Goose', 'Feather', 'Weight', 'Loss'],
+  ['Merry', 'Christmas', 'Tree', 'House', 'Keeping'],
   ['Forbidden', 'Fruit', 'Salad', 'Dressing', 'Room'],
+  ['Family', 'Business', 'Card', 'Game', 'Cube'],
 ];
 
 let insertFirstWord = document.getElementById('firstWord');
@@ -46,8 +47,6 @@ insertFourthInput.addEventListener('keypress', (e) => {
 // New game
 const newGame = document.querySelector('.newGame');
 newGame.addEventListener('click', setUpGame);
-
-// Rules - hide and show rules
 
 let activePlayer = 1;
 let playerOnePoints = document.getElementById('points1');
@@ -262,6 +261,7 @@ const checkForWinner = () => {
   }
 };
 
+// Rules - hide and show rules
 function toggleRules() {
   let rules = document.querySelector('.rules');
   if (rules.style.display === 'none') {
@@ -270,7 +270,3 @@ function toggleRules() {
     rules.style.display = 'none';
   }
 }
-/* Extra Stuff
-  Section to type player 1 and 2's name
-  Show next letter, if a player gets the word wrong
-*/

@@ -11,6 +11,24 @@
     }
 }
 
+@keyframes textUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+}
+
 body {
     height: 100vh;
     width: 1000px;
@@ -27,7 +45,8 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 80px;
     color: #ff9e00;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    animation: textUp 2s ease-out 3;
 }
 
 li {
