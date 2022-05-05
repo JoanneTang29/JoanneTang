@@ -77,23 +77,9 @@ selectHundredPoints.addEventListener('click', () => setWager(100));
 let selectTwoHundredPoints = document.getElementById('wager200');
 selectTwoHundredPoints.addEventListener('click', () => setWager(200));
 
-// Insert phrases into DOM
-const insertPhrases = () => {
-  insertFirstWord.replaceChildren(phraseList[round - 1][0]);
-
-  insertSecondInput.placeholder = phraseList[round - 1][1][0];
-
-  insertThirdInput.placeholder = phraseList[round - 1][2][0];
-
-  insertFourthInput.placeholder = phraseList[round - 1][3][0];
-
-  insertFifthWord.replaceChildren(phraseList[round - 1][4]);
-};
-
 function setUpGame() {
   randomizeArray(phraseList);
   resetScore();
-  insertPhrases();
   resetInput();
   setWager(0);
   rules.style.display = 'none';
@@ -105,6 +91,7 @@ function setUpGame() {
   insertFourthInput.disabled = false;
   wordCounter = 0;
   round = 1;
+  insertPhrases();
   console.log('printing randomized arrays', phraseList);
 }
 
@@ -127,6 +114,18 @@ const randomizeArray = (phraseList) => {
     phraseList[j] = temp;
   }
   return phraseList;
+};
+
+const insertPhrases = () => {
+  insertFirstWord.replaceChildren(phraseList[round - 1][0]);
+
+  insertSecondInput.placeholder = phraseList[round - 1][1][0];
+
+  insertThirdInput.placeholder = phraseList[round - 1][2][0];
+
+  insertFourthInput.placeholder = phraseList[round - 1][3][0];
+
+  insertFifthWord.replaceChildren(phraseList[round - 1][4]);
 };
 
 const resetScore = () => {
@@ -172,7 +171,6 @@ const verifyIfRoundIsOverAndIncrement = () => {
 };
 
 const guessSecondWord = () => {
-  // insertSecondInput.value;
   if (insertSecondInput.value === phraseList[round - 1][1]) {
     addPoints();
     wordCounter++;
@@ -188,7 +186,6 @@ const guessSecondWord = () => {
 };
 
 const guessThirdWord = () => {
-  // insertThirdInput.value;
   if (insertThirdInput.value === phraseList[round - 1][2]) {
     addPoints();
     wordCounter++;
@@ -204,7 +201,6 @@ const guessThirdWord = () => {
 };
 
 const guessFourthWord = () => {
-  // insertFourthInput.value;
   if (insertFourthInput.value === phraseList[round - 1][3]) {
     addPoints();
     wordCounter++;
