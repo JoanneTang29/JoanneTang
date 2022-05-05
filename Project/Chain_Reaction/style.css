@@ -20,7 +20,7 @@
       opacity: 0;
     }
     50% {
-      opacity: 1;
+      opacity: .5;
       transform: translateY(0%);
     }
     100% {
@@ -31,9 +31,8 @@
 
 body {
     height: 100vh;
-    width: 1000px;
-    margin-left: 2em;
-    margin-right: 2em;
+    max-width: 1000px;
+    margin: auto;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #0d3b66;
     color: white;
@@ -102,7 +101,7 @@ input {
     list-style-type: none;
 }
 
-#boldObjective {
+.boldText {
     font-weight: bold;
 }
 
@@ -150,8 +149,8 @@ input {
 
 .wagerContainer {
     /* border: blue 2px solid; */
-    height: 200px;
-    padding: 1em;
+    height: 175px;
+    padding: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -189,6 +188,7 @@ input {
     text-align: center;
     padding: 10px;
     font-size: 26pt;
+    font-weight: 700;
     margin-left: 125px;
     margin-right: 100px;
     background-color: #ff9e00;
@@ -223,7 +223,9 @@ input {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: #0d3b66;
+    background-color: rgba(13, 59, 102, 0.9);
+    background-image: url('https://www.healthysexuals.com/healthy-sex-questions/Content/img/slides/question15/complete-confetti.gif');
+    background-size: cover;
     border-radius: 25px;
     align-items: center;
     justify-content: center;
