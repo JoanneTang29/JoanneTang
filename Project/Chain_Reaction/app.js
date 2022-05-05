@@ -61,10 +61,6 @@ let playerTwoScore = 500;
 // Points
 let wager = 0;
 
-const points50 = 50;
-const points100 = 100;
-const points200 = 200;
-
 // Rounds
 let round = 1;
 let wordCounter = 0;
