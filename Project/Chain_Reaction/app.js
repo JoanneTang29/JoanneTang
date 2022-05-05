@@ -48,6 +48,8 @@ insertFourthInput.addEventListener('keypress', (e) => {
 const newGame = document.querySelector('.newGame');
 newGame.addEventListener('click', setUpGame);
 
+let rules = document.querySelector('.rules');
+
 let activePlayer = 1;
 let playerOnePoints = document.getElementById('points1');
 let playerTwoPoints = document.getElementById('points2');
@@ -94,6 +96,7 @@ function setUpGame() {
   insertPhrases();
   resetInput();
   setWager(0);
+  rules.style.display = 'none';
   activePlayer = 1;
   document.querySelector('.playerOne').style.backgroundColor = '#ff5400';
   document.querySelector('.playerTwo').style.backgroundColor = '#0d3b66';
@@ -164,7 +167,7 @@ const verifyIfRoundIsOverAndIncrement = () => {
     nextRound();
   }
   if (round === 3 && wordCounter === 3) {
-    checkForWinner();
+    setTimeout(() => checkForWinner(), 2000);
   }
 };
 
@@ -263,7 +266,6 @@ const checkForWinner = () => {
 
 // Rules - hide and show rules
 function toggleRules() {
-  let rules = document.querySelector('.rules');
   if (rules.style.display === 'none') {
     rules.style.display = 'block';
   } else {
