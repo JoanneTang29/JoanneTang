@@ -173,7 +173,7 @@ const guessSecondWord = () => {
     insertSecondInput.disabled = true;
     console.log('word counter', wordCounter);
   } else if (insertSecondInput.value === '') {
-    console.log('do nothing');
+    console.log('need input');
   } else {
     minusPoints();
   }
@@ -188,7 +188,7 @@ const guessThirdWord = () => {
     insertThirdInput.disabled = true;
     console.log('word counter', wordCounter);
   } else if (insertThirdInput.value === '') {
-    console.log('do nothing');
+    console.log('need input');
   } else {
     minusPoints();
   }
@@ -203,7 +203,7 @@ const guessFourthWord = () => {
     insertFourthInput.disabled = true;
     console.log('word counter', wordCounter);
   } else if (insertFourthInput.value === '') {
-    console.log('do nothing');
+    console.log('need input');
   } else {
     minusPoints();
   }
@@ -247,11 +247,11 @@ const checkForWinner = () => {
       const winnerOne = document.querySelector('.playerOneWins');
       winnerOne.style.display = 'block';
     } else {
+      console.log('Player Two Wins');
       const endGame = document.querySelector('.end-game');
       endGame.style.display = 'block';
       const winnerTwo = document.querySelector('.playerTwoWins');
       winnerTwo.style.display = 'block';
-      console.log('Player Two Wins');
     }
   }
 };
