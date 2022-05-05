@@ -29,6 +29,15 @@
     }
 }
 
+@keyframes glow {
+    from {
+        text-shadow: #ffc870 0px 0px 50px;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #f8deb3, 0 0 40px #f5c270, 0 0 50px #f7b141, 0 0 60px #fb6e01;
+      }
+}
+
 body {
     height: 100vh;
     max-width: 1000px;
@@ -45,7 +54,7 @@ h1 {
     font-size: 80px;
     color: #ff9e00;
     letter-spacing: 3px;
-    animation: textUp 2s ease-out 3;
+    animation: textUp 1.5s ease-in 3;
 }
 
 li {
@@ -93,6 +102,8 @@ input {
     height: 440px;
     border-radius: 25px;
     padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
     font-size: 16pt;
     z-index: 200;
 }
@@ -164,7 +175,7 @@ input {
     height: 125px;
     width: 125px;
 	border-radius:50%;
-	border:1px solid #d83526;
+	border: 3px solid black;
 	display:inline-block;
 	cursor:grabbing;
 	color:#ffffff;
