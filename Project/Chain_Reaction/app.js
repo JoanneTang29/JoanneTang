@@ -19,6 +19,13 @@ let phraseList = [
   ['Family', 'Business', 'Card', 'Game', 'Cube'],
 ];
 
+//Sounds
+let buttonSound = new Audio('sounds/26777__junggle__btn402.mp3');
+let startSound = new Audio('sounds/243020__plasterbrain__game-start.ogg');
+let winSound = new Audio('sounds/269198__mickleness__game-win.mp3');
+
+//Insert phrases and enter input
+
 let insertFirstWord = document.getElementById('firstWord');
 let insertSecondInput = document.getElementById('secondWord');
 let insertThirdInput = document.getElementById('thirdWord');
@@ -47,6 +54,7 @@ insertFourthInput.addEventListener('keypress', (e) => {
 // New game
 const newGame = document.querySelector('.newGame');
 newGame.addEventListener('click', setUpGame);
+newGame.addEventListener('click', () => startSound.play());
 
 let rules = document.querySelector('.rules');
 
@@ -64,10 +72,6 @@ let wager = 0;
 // Rounds
 let round = 1;
 let wordCounter = 0;
-
-//Sounds
-let buttonSound = new Audio('sounds/26777__junggle__btn402.mp3');
-let startSound = new Audio('sounds/243020__plasterbrain__game-start.ogg');
 
 // Button to select wager
 let selectFiftyPoints = document.getElementById('wager50');
@@ -95,7 +99,6 @@ function setUpGame() {
   wordCounter = 0;
   round = 1;
   insertPhrases();
-  startSound.play();
   console.log('printing randomized arrays', phraseList);
 }
 
@@ -170,7 +173,7 @@ const verifyIfRoundIsOverAndIncrement = () => {
     nextRound();
   }
   if (round === 3 && wordCounter === 3) {
-    setTimeout(() => checkForWinner(), 2000);
+    setTimeout(() => checkForWinner(), 1500);
   }
 };
 
@@ -250,12 +253,14 @@ const checkForWinner = () => {
   if (round === 3) {
     if (playerOneScore > playerTwoScore) {
       console.log('Player One Wins');
+      winSound.play();
       const endGame = document.querySelector('.end-game');
       endGame.style.display = 'block';
       const winnerOne = document.querySelector('.playerOneWins');
       winnerOne.style.display = 'block';
     } else {
       console.log('Player Two Wins');
+      winSound.play();
       const endGame = document.querySelector('.end-game');
       endGame.style.display = 'block';
       const winnerTwo = document.querySelector('.playerTwoWins');
