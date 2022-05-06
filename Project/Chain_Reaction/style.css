@@ -200,6 +200,7 @@ input {
 
 .newGame {
     margin-top: 30px;
+    margin-bottom: 30px;
     height: 80px;
     width: 150px;
     font-size: 16pt;
