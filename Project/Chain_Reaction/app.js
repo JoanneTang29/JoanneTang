@@ -20,17 +20,17 @@ let phraseList = [
 ];
 
 //Sounds
-let buttonSound = new Audio('sounds/26777__junggle__btn402.mp3');
-let startSound = new Audio('sounds/243020__plasterbrain__game-start.ogg');
-let winSound = new Audio('sounds/269198__mickleness__game-win.mp3');
+const buttonSound = new Audio('sounds/26777__junggle__btn402.mp3');
+const startSound = new Audio('sounds/243020__plasterbrain__game-start.ogg');
+const winSound = new Audio('sounds/269198__mickleness__game-win.mp3');
 
 //Insert phrases and enter input
 
-let insertFirstWord = document.getElementById('firstWord');
-let insertSecondInput = document.getElementById('secondWord');
-let insertThirdInput = document.getElementById('thirdWord');
-let insertFourthInput = document.getElementById('fourthWord');
-let insertFifthWord = document.getElementById('fifthWord');
+const insertFirstWord = document.getElementById('firstWord');
+const insertSecondInput = document.getElementById('secondWord');
+const insertThirdInput = document.getElementById('thirdWord');
+const insertFourthInput = document.getElementById('fourthWord');
+const insertFifthWord = document.getElementById('fifthWord');
 
 insertSecondInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
@@ -56,11 +56,11 @@ const newGame = document.querySelector('.newGame');
 newGame.addEventListener('click', setUpGame);
 newGame.addEventListener('click', () => startSound.play());
 
-let rules = document.querySelector('.rules');
+const rules = document.querySelector('.rules');
 
 let activePlayer = 1;
-let playerOnePoints = document.getElementById('points1');
-let playerTwoPoints = document.getElementById('points2');
+const playerOnePoints = document.getElementById('points1');
+const playerTwoPoints = document.getElementById('points2');
 
 // Player Scores
 let playerOneScore = 500;
@@ -74,20 +74,26 @@ let round = 1;
 let wordCounter = 0;
 
 // Button to select wager
-let selectFiftyPoints = document.getElementById('wager50');
+const selectFiftyPoints = document.getElementById('wager50');
 selectFiftyPoints.addEventListener('click', () => setWager(50));
 selectFiftyPoints.addEventListener('click', () => buttonSound.play());
-let selectHundredPoints = document.getElementById('wager100');
+const selectHundredPoints = document.getElementById('wager100');
 selectHundredPoints.addEventListener('click', () => setWager(100));
 selectHundredPoints.addEventListener('click', () => buttonSound.play());
-let selectTwoHundredPoints = document.getElementById('wager200');
+const selectTwoHundredPoints = document.getElementById('wager200');
 selectTwoHundredPoints.addEventListener('click', () => setWager(200));
 selectTwoHundredPoints.addEventListener('click', () => buttonSound.play());
+
+// End game display
+const endGame = document.querySelector('.end-game');
+const winnerOne = document.querySelector('.playerOneWins');
+const winnerTwo = document.querySelector('.playerTwoWins');
 
 function setUpGame() {
   randomizeArray(phraseList);
   resetScore();
   resetInput();
+  resetWinnerScreen();
   setWager(0);
   rules.style.display = 'none';
   activePlayer = 1;
@@ -146,6 +152,12 @@ const resetInput = () => {
   insertSecondInput.value = '';
   insertThirdInput.value = '';
   insertFourthInput.value = '';
+};
+
+const resetWinnerScreen = () => {
+  endGame.style.display = 'none';
+  winnerOne.style.display = 'none';
+  winnerTwo.style.display = 'none';
 };
 
 const checkActivePlayer = () => {
@@ -254,16 +266,12 @@ const checkForWinner = () => {
     if (playerOneScore > playerTwoScore) {
       console.log('Player One Wins');
       winSound.play();
-      const endGame = document.querySelector('.end-game');
       endGame.style.display = 'block';
-      const winnerOne = document.querySelector('.playerOneWins');
       winnerOne.style.display = 'block';
     } else {
       console.log('Player Two Wins');
       winSound.play();
-      const endGame = document.querySelector('.end-game');
       endGame.style.display = 'block';
-      const winnerTwo = document.querySelector('.playerTwoWins');
       winnerTwo.style.display = 'block';
     }
   }
