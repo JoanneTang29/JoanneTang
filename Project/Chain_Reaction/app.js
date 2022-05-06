@@ -65,13 +65,20 @@ let wager = 0;
 let round = 1;
 let wordCounter = 0;
 
+//Sounds
+let buttonSound = new Audio('sounds/26777__junggle__btn402.mp3');
+let startSound = new Audio('sounds/243020__plasterbrain__game-start.ogg');
+
 // Button to select wager
 let selectFiftyPoints = document.getElementById('wager50');
 selectFiftyPoints.addEventListener('click', () => setWager(50));
+selectFiftyPoints.addEventListener('click', () => buttonSound.play());
 let selectHundredPoints = document.getElementById('wager100');
 selectHundredPoints.addEventListener('click', () => setWager(100));
+selectHundredPoints.addEventListener('click', () => buttonSound.play());
 let selectTwoHundredPoints = document.getElementById('wager200');
 selectTwoHundredPoints.addEventListener('click', () => setWager(200));
+selectTwoHundredPoints.addEventListener('click', () => buttonSound.play());
 
 function setUpGame() {
   randomizeArray(phraseList);
@@ -88,6 +95,7 @@ function setUpGame() {
   wordCounter = 0;
   round = 1;
   insertPhrases();
+  startSound.play();
   console.log('printing randomized arrays', phraseList);
 }
 
