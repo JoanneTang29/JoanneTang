@@ -270,10 +270,10 @@ const checkForWinner = () => {
 };
 
 // Rules - hide and show rules
-function toggleRules() {
+const toggleRules = () => {
   if (rules.style.display === 'none') {
     rules.style.display = 'block';
   } else {
     rules.style.display = 'none';
   }
-}
+};
