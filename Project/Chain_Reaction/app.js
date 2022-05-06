@@ -105,11 +105,13 @@ function setUpGame() {
   wordCounter = 0;
   round = 1;
   insertPhrases();
+  showRoundScreen();
   console.log('printing randomized arrays', phraseList);
 }
 
 function nextRound() {
   round++;
+  showRoundScreen();
   insertPhrases();
   resetInput();
   setWager(0);
@@ -170,6 +172,22 @@ const checkActivePlayer = () => {
     console.log('active player', activePlayer);
     document.querySelector('.playerOne').style.backgroundColor = '#ff5400';
     document.querySelector('.playerTwo').style.backgroundColor = '#0d3b66';
+  }
+};
+
+let roundText = document.getElementById('roundText');
+
+const showRoundScreen = () => {
+  console.log('Round Screen');
+  if (round === 1) {
+    roundText.innerHTML = 'Round 1';
+    roundText.style.display = 'block';
+  }
+  if (round === 2) {
+    roundText.innerHTML = 'Round 2';
+  }
+  if (round === 3) {
+    roundText.innerHTML = 'Round 3';
   }
 };
 
@@ -268,11 +286,13 @@ const checkForWinner = () => {
       winSound.play();
       endGame.style.display = 'block';
       winnerOne.style.display = 'block';
+      roundText.style.display = 'none';
     } else {
       console.log('Player Two Wins');
       winSound.play();
       endGame.style.display = 'block';
       winnerTwo.style.display = 'block';
+      roundText.style.display = 'none';
     }
   }
 };

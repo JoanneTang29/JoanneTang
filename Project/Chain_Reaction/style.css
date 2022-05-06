@@ -217,8 +217,8 @@ input {
 }
 
 .newGame:active {
-    position:relative;
-	top:4px;
+    position: relative;
+	top: 4px;
 }
 
 /* Winner/Loser*/
@@ -254,4 +254,17 @@ input {
     z-index: 50;
     display: none;
     animation: blink 1.5s infinite;
+}
+
+.rounds {
+    margin-top: 10px;
+    font-size: 26pt;
+}
+
+#roundText {
+    /* border: 2px orange solid; */
+    text-align: center;
+    font-family: cursive;
+    animation: blink 1s 3;
+    display: none;
 }
