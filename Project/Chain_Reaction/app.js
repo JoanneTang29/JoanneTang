@@ -72,6 +72,7 @@ let wager = 0;
 // Rounds
 let round = 1;
 let wordCounter = 0;
+let roundText = document.getElementById('roundText');
 
 // Button to select wager
 const selectFiftyPoints = document.getElementById('wager50');
@@ -175,10 +176,7 @@ const checkActivePlayer = () => {
   }
 };
 
-let roundText = document.getElementById('roundText');
-
 const showRoundScreen = () => {
-  console.log('Round Screen');
   if (round === 1) {
     roundText.innerHTML = 'Round 1';
     roundText.style.display = 'block';
@@ -208,48 +206,60 @@ const verifyIfRoundIsOverAndIncrement = () => {
 };
 
 const guessSecondWord = () => {
-  if (insertSecondInput.value === phraseList[round - 1][1]) {
-    addPoints();
-    wordCounter++;
-    insertSecondInput.disabled = true;
-    console.log('word counter', wordCounter);
-  } else if (insertSecondInput.value === '') {
-    console.log('need input');
+  if (wager === 0) {
+    alert('Please select wager');
   } else {
-    minusPoints();
+    if (insertSecondInput.value === phraseList[round - 1][1]) {
+      addPoints();
+      wordCounter++;
+      insertSecondInput.disabled = true;
+      console.log('word counter', wordCounter);
+    } else if (insertSecondInput.value === '') {
+      console.log('need input');
+    } else {
+      minusPoints();
+    }
+    checkActivePlayer();
+    verifyIfRoundIsOverAndIncrement();
   }
-  checkActivePlayer();
-  verifyIfRoundIsOverAndIncrement();
 };
 
 const guessThirdWord = () => {
-  if (insertThirdInput.value === phraseList[round - 1][2]) {
-    addPoints();
-    wordCounter++;
-    insertThirdInput.disabled = true;
-    console.log('word counter', wordCounter);
-  } else if (insertThirdInput.value === '') {
-    console.log('need input');
+  if (wager === 0) {
+    alert('Please select wager');
   } else {
-    minusPoints();
+    if (insertThirdInput.value === phraseList[round - 1][2]) {
+      addPoints();
+      wordCounter++;
+      insertThirdInput.disabled = true;
+      console.log('word counter', wordCounter);
+    } else if (insertThirdInput.value === '') {
+      console.log('need input');
+    } else {
+      minusPoints();
+    }
+    checkActivePlayer();
+    verifyIfRoundIsOverAndIncrement();
   }
-  checkActivePlayer();
-  verifyIfRoundIsOverAndIncrement();
 };
 
 const guessFourthWord = () => {
-  if (insertFourthInput.value === phraseList[round - 1][3]) {
-    addPoints();
-    wordCounter++;
-    insertFourthInput.disabled = true;
-    console.log('word counter', wordCounter);
-  } else if (insertFourthInput.value === '') {
-    console.log('need input');
+  if (wager === 0) {
+    alert('Please select wager');
   } else {
-    minusPoints();
+    if (insertFourthInput.value === phraseList[round - 1][3]) {
+      addPoints();
+      wordCounter++;
+      insertFourthInput.disabled = true;
+      console.log('word counter', wordCounter);
+    } else if (insertFourthInput.value === '') {
+      console.log('need input');
+    } else {
+      minusPoints();
+    }
+    checkActivePlayer();
+    verifyIfRoundIsOverAndIncrement();
   }
-  checkActivePlayer();
-  verifyIfRoundIsOverAndIncrement();
 };
 
 const setWager = (number) => {
@@ -297,7 +307,6 @@ const checkForWinner = () => {
   }
 };
 
-// Rules - hide and show rules
 const toggleRules = () => {
   if (rules.style.display === 'none') {
     rules.style.display = 'block';

@@ -266,6 +266,5 @@ input {
     /* border: 2px orange solid; */
     text-align: center;
     font-family: cursive;
-    animation: blink 1s 3;
     display: none;
 }
