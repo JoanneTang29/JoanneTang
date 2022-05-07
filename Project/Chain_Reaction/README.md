@@ -19,8 +19,7 @@ Figure out how to select each nested array as well as randomize it.
 Then figure out how to insert the array into the HTML.
 There are functions to add and subtract points from the score, alternate players, guess missing words, check for the winner, toggle the rules, reset the game, clear the board for the next round.
 
-## Unsolved problems:
+## Nice-to-haves:
 
-Deactivate the phrases, so the player must select a wager before guessing the word.
 A clear way to show that points are being added or subtracted.
-I would also like to make the game not case sensitive.
+Make the game not case-sensitive.
