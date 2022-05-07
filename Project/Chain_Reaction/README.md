@@ -19,5 +19,5 @@ My application is based on a game show where players compete to guess words in a
 
 ## Nice-to-haves:
 
-1. A clear way to show that points are being added or subtracted.
-2. Make the game not case-sensitive.
+- A clear way to show that points are being added or subtracted.
+- Make the game not case-sensitive.
