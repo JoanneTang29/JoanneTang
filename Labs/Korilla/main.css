@@ -1,0 +1,8 @@
+.truck-name {
+    color: green;
+}
+
+.receipt-container {
+    display: flex;
+    border: 2px solid red;
+}
