@@ -3,13 +3,23 @@ class Receipt extends React.Component {
     paid: false,
   };
 
-  handlePaidToggle = () => {
-    this.setState({
-      paid: !this.state.paid,
-    });
+  handlePaidToggle = (person) => {
+    console.log('handle paid toggle', person);
+    console.log(this.state.receipts);
+    if (this.state.paid) {
+      this.setState({
+        paid: false,
+      });
+    } else {
+      this.setState({ paid: true });
+    }
+    // this.setState({
+    //   paid: !this.state.paid,
+    // });
   };
 
   render() {
+    console.log(this.state.paid);
     return (
       <div>
         <h2>{this.props.receipt.person}</h2>
@@ -33,9 +43,12 @@ class Receipt extends React.Component {
           <span>Cost: </span>
           {this.props.receipt.order.cost}
         </h5>
+        <h5>
+          Paid: <span>{this.state.paid ? 'Yes' : 'No'}</span>
+        </h5>
         <button
           onClick={() => {
-            return this.props.handlePaidToggle(this.props.element);
+            this.handlePaidToggle(this.props.receipt.person);
           }}
         >
           Paid
