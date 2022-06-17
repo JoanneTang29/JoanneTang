@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import DivOne from './DivOne';
 
 class DivTwo extends React.Component {
@@ -46,7 +46,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <DivOne />
+          <DivOne changeIt={this.changeIt} tardis={this.state.tardis} />
         </div>
       </div>
     );

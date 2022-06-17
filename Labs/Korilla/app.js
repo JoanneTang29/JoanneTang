@@ -48,7 +48,7 @@ class Receipt extends React.Component {
         </h5>
         <button
           onClick={() => {
-            this.handlePaidToggle(this.props.receipt.person);
+            this.handlePaidToggle(this.state.receipt.person);
           }}
         >
           Paid
