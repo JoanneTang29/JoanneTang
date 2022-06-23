@@ -15,7 +15,6 @@ const Cart = (props) => {
           <div>
             {item.name} ${item.price}
           </div>
-          {/* <button onClick={() => handleAddToCart(item)}>+</button> */}
         </div>
       ))}
       <h3>Total: ${Math.round((total + Number.EPSILON) * 100) / 100}</h3>

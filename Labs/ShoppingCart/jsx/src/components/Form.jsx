@@ -66,7 +66,9 @@ const Form = (props) => {
           onChange={handleChange}
         />
         <br />
-        <input type="submit" />
+        <button type="submit" class="ui button">
+          Submit
+        </button>
       </form>
       <div className="preview">
         <h1>Preview new item</h1>

@@ -7,14 +7,16 @@ const Hiring = () => {
   };
   return (
     <div className="hiringContainer">
-      <div>
+      <p>
         {toggleHiring ? (
           <h4>We are hiring!</h4>
         ) : (
           <h4>Sorry, we are not hiring.</h4>
         )}
-      </div>
-      <button onClick={handleToggleHiring}>Hiring Toggle</button>
+      </p>
+      <button class="ui button" onClick={handleToggleHiring}>
+        Hiring Toggle
+      </button>
     </div>
   );
 };

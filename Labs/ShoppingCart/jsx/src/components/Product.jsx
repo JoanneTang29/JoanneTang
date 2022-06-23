@@ -13,7 +13,10 @@ const Product = (props) => {
       </h3>
       <p>{product.description}</p>
       <div>
-        <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+        <button class="ui button" onClick={() => handleAddToCart(product)}>
+          Add to Cart
+        </button>
+        {/* <button onClick={() => handleAddToCart(product)}>Add to Cart</button> */}
       </div>
     </div>
   );
