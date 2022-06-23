@@ -6,7 +6,6 @@ import React from 'react';
 // 3. Create component
 const Product = (props) => {
   const { product, handleAddToCart } = props;
-  console.log('product', props);
   return (
     <div className="productContainer">
       <h3>

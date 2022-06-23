@@ -12,30 +12,19 @@ import './main.css';
 
 // 3. Create component
 const App = () => {
-  const { products } = data;
+  const [productData, setProductData] = useState(data);
   const [cartItems, setCartItems] = useState([]);
+
+  // Add items to cart
   const handleAddToCart = (product) => {
-    const isProduct = cartItems.find(
-      (element) => element.name === product.name
-    );
-    console.log('product', isProduct);
-    if (isProduct) {
-      console.log('product found');
-      setCartItems(
-        cartItems.map((element) =>
-          element.name === product.name ? { ...isProduct } : element
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product }]);
-    }
+    setCartItems([...cartItems, { ...product }]);
   };
   return (
     <div className="appContainer">
       <Header />
       <Hiring />
-      <Form />
-      <Main products={products} handleAddToCart={handleAddToCart} />
+      <Form products={productData} setProductData={setProductData} />
+      <Main products={productData} handleAddToCart={handleAddToCart} />
       <Cart cartItems={cartItems} handleAddToCart={handleAddToCart} />
     </div>
   );

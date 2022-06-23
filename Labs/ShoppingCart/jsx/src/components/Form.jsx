@@ -1,51 +1,79 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = (props) => {
+  const { products, setProductData } = props;
   const [productForm, setProductForm] = useState({
     name: '',
     price: 0,
     description: '',
   });
+
+  // Method to change user input
   const handleChange = (e) => {
-    setProductForm({ ...productForm, [e.target.name]: e.target.value });
+    setProductForm((prevalue) => {
+      return {
+        ...prevalue,
+        [e.target.name]: e.target.value,
+      };
+    });
   };
+
+  // Function to submit the form
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(productForm);
-    setProductForm({ name: '', price: 0, description: '' });
+    setProductForm({
+      ...productForm,
+      name: e.target.name.value,
+      price: e.target.price.value,
+      description: e.target.description.value,
+    });
+    console.log('here');
+    const newItem = {
+      name: e.target.name.value,
+      price: parseInt(e.target.price.value),
+      description: e.target.description.value,
+    };
+    setProductData([...products, newItem]);
   };
+
   return (
     <div className="formContainer">
       <h1>Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input
-          id="name"
+          name="name"
           type="text"
-          value={productForm.name}
+          defaultValue={productForm.name}
           onChange={handleChange}
         />
         <br />
         <label htmlFor="price">Price: </label>
         <input
-          id="price"
-          type="text"
+          name="price"
+          type="number"
           placeholder="0"
-          value={productForm.price}
+          defaultValue={productForm.price}
           onChange={handleChange}
         />
         <br />
         <label htmlFor="description">Description: </label>
         <input
-          id="description"
+          name="description"
           type="text"
           placeholder="Description goes here"
-          value={productForm.description}
+          defaultValue={productForm.description}
           onChange={handleChange}
         />
         <br />
         <input type="submit" />
       </form>
+      <div className="preview">
+        <h1>Preview new item</h1>
+        <h3>{productForm.name}</h3>
+        <h3>{productForm.price}</h3>
+        <h3>{productForm.description}</h3>
+      </div>
     </div>
   );
 };

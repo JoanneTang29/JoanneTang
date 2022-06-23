@@ -2,8 +2,8 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-h1, h2, h3 {
-    margin: 1em;
+h1, h2 {
+    margin-left: 1em;
 }
 
 button {
@@ -57,9 +57,19 @@ button {
 
 .cartContainer {
     border: 1px solid black;
-    margin: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
     padding: 1em;
     /* height: fit-content; */
     grid-area: cart;
 
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    height: 20px;
+    margin: 5px;
 }

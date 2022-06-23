@@ -3,6 +3,7 @@ import React from 'react';
 const Cart = (props) => {
   const { cartItems, handleAddToCart } = props;
   const total = cartItems.reduce((accumulator, element) => {
+    console.log('here number');
     return (accumulator += element.price);
   }, 0);
   return (
@@ -12,12 +13,12 @@ const Cart = (props) => {
       {cartItems.map((item) => (
         <div>
           <div>
-            {item.name} {item.price}
+            {item.name} ${item.price}
           </div>
           {/* <button onClick={() => handleAddToCart(item)}>+</button> */}
         </div>
       ))}
-      <h3>Total: {Math.round((total + Number.EPSILON) * 100) / 100}</h3>
+      <h3>Total: ${Math.round((total + Number.EPSILON) * 100) / 100}</h3>
     </div>
   );
 };
