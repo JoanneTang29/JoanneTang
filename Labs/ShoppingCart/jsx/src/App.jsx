@@ -17,7 +17,7 @@ const App = () => {
 
   // Add items to cart
   const handleAddToCart = (product) => {
-    setCartItems([...cartItems, { ...product }]);
+    setCartItems([...cartItems, product]);
   };
   return (
     <div className="appContainer">
